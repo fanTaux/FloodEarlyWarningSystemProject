@@ -5,8 +5,8 @@
 #include "DHT.h"          // "DHT sensor library" dan "Adafruit Unified Sensor" by Adafruit
 
 // ================= KONEKSI & KREDENSIAL =================
-const char* ssid = "Si";           
-const char* password = "aaabaaaa"; 
+const char* ssid = "<ssid>";           
+const char* password = "<pw>"; 
 
 // Kredensial Thinger.io
 const char* thinger_username = "<usn>";      // Username Thinger.io
@@ -25,7 +25,7 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // ================= TOPIK MQTT =================
-const char* mqtt_topic = "flood/iothujan3/data";
+const char* mqtt_topic = "flood/<dvid>/data";
 
 // ================= KONFIGURASI SENSOR =================
 #define DHTPIN 4
