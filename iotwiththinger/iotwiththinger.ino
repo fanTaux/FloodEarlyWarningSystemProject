@@ -1,16 +1,21 @@
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
 #include <PubSubClient.h> // "PubSubClient" by Nick O'Leary
 #include <Wire.h>
 #include "DHT.h"          // "DHT sensor library" dan "Adafruit Unified Sensor" by Adafruit
 
 // ================= KONEKSI & KREDENSIAL =================
-const char* ssid = "<ssid>";           
-const char* password = "<pw>"; 
+const char* ssid = "Si";           
+const char* password = "aaabaaaa"; 
 
 // Kredensial Thinger.io
-const char* thinger_username = "<usr>";              // Username Thinger.io
-const char* device_id        = "<dvid>";           // Device ID di Thinger.io
-const char* device_credentials = "<dvcred>";  // Password Device
+const char* thinger_username = "<usn>";      // Username Thinger.io
+const char* device_id        = "<dvid>";     // Device ID di Thinger.io
+const char* device_credentials = "<dvcr>";   // Password Device
+
+// Bot Telegram
+#define BOTtoken "<bot:token>"
+#define CHAT_ID "<chatid>"
 
 // Server MQTT Thinger.io
 const char* mqtt_server = "backend.thinger.io";
@@ -20,7 +25,7 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // ================= TOPIK MQTT =================
-const char* mqtt_topic = "flood/<dvid>/data";
+const char* mqtt_topic = "flood/iothujan3/data";
 
 // ================= KONFIGURASI SENSOR =================
 #define DHTPIN 4
@@ -30,10 +35,11 @@ DHT dht(DHTPIN, DHTTYPE);
 const int TRIGPIN = 18;
 const int ECHOPIN = 19;
 const int rainPin = 39;
+const int pin_buzzer = 23;
 
 // Variable mengukur Ketinggian air
 const int h_default = 9;  // tinggi awal air
-const int s_default = 15; // jarak awal dari sensor ke permukaan air
+const int s_default = 14; // jarak awal dari sensor ke permukaan air
 int h_now = 0;            // ketinggian air jika mengalami perubahan
 
 // Variabel Data
@@ -43,7 +49,7 @@ int rainValue = 0;
 
 // Timer
 unsigned long previousMillis = 0;
-const long interval = 20000; // Baca dan kirim tiap 20 detik
+const long interval = 20000;
 
 // ================= SETUP WIFI =================
 void setup_wifi() {
@@ -84,6 +90,42 @@ void reconnect() {
   }
 }
 
+// ================= NOTIFICATION TO TELEGRAM BOT =================
+bool sendTelegramMessage(int tinggi_air) {
+  if (WiFi.status() != WL_CONNECTED) return false;
+
+  WiFiClientSecure client;
+  client.setInsecure();
+
+  String url = String("https://api.telegram.org/bot") + BOTtoken + "/sendMessage";
+  String message;
+
+  message = "Emergency Alert! \nTinggi Air Naik!! \nTinggi Sekarang: " + String(h_now) ;
+
+  String payload = "{\"chat_id\":\"" + String(CHAT_ID) + "\",\"text\":\"" + message + "\"}";
+
+  if (!client.connect("api.telegram.org", 443)) {
+    Serial.println(F("Connection to Telegram failed."));
+    return false;
+  }
+
+  client.println("POST /bot" + String(BOTtoken) + "/sendMessage HTTP/1.1");
+  client.println("Host: api.telegram.org");
+  client.println("Content-Type: application/json");
+  client.println("Content-Length: " + String(payload.length()));
+  client.println();
+  client.println(payload);
+
+  unsigned long startTime = millis();
+  while (client.connected() || client.available()) {
+    if (client.available()) {
+      return true; // Pesan terkirim
+    }
+    if (millis() - startTime > 5000) break;
+  }
+  return false; // tidak ada respons atau gagal
+}
+
 // ================= SETUP =================
 void setup() {
   Serial.begin(9600);
@@ -92,6 +134,7 @@ void setup() {
   dht.begin();
   pinMode(TRIGPIN, OUTPUT);
   pinMode(ECHOPIN, INPUT);
+  pinMode(pin_buzzer, OUTPUT);
   
   setup_wifi();
   client.setServer(mqtt_server, mqtt_port);
@@ -146,6 +189,17 @@ void loop() {
       rainStatus = "Kering";
     } else {
       rainStatus = "Hujan";
+    }
+
+    // Jika tinggi naik, kirim notif buzzer nyala
+    if (h_now >= 12){
+      sendTelegramMessage(h_now);
+      for (int i=0; i<4; i++){
+        digitalWrite(pin_buzzer,HIGH);
+        delay(250);
+        digitalWrite(pin_buzzer,LOW);
+        delay(250);
+      }
     }
     
     // ========== VALIDASI & PUBLISH ==========
