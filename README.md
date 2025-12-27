@@ -1,7 +1,7 @@
 # IoT-Based Flood Early Warning System Using Thinger.io for Real-Time Data Visualization
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fed6c4f2-d08b-470d-a71d-a3c96022bd6b" alt="FeedMe Project Banner" width="600">
+  <img src="https://github.com/fanTaux/FloodEarlyWarningSystemProject/blob/7a1f3aef27163857cf8e27b2f33572f83b86d7f0/assets/AlatEWS.jpg" alt="EWS Project Banner" width="600">
 </p>
 
 ## Project Domain
