@@ -5,7 +5,7 @@
 </p>
 
 ## Project Domain
-This project presents an Internet of Things (IoT) solution that automates key aspects of livestock care. It features an automated system for dispensing feed and water via actuators and integrates real-time environmental monitoring to ensure optimal temperature conditions.
+This project presents an Internet of Things (IoT) solution designed for disaster mitigation, specifically focusing on a Flood Early Warning System (EWS). It features real-time monitoring of river water levels, rainfall intensity, and environmental conditions (temperature and humidity) to bridge the information gap between upstream conditions and downstream residential areas. The system integrates digital notifications via Telegram and visual data tracking through the Thinger.io cloud platform to ensure residents can evacuate timely during extreme weather or nighttime.
 
 ## Table Of Contents
 - [Background](#background)
@@ -21,20 +21,20 @@ This project presents an Internet of Things (IoT) solution that automates key as
 
 
 ### Problem Statements
-1. Feeding and watering chickens is still performed manually, requiring the farmer's constant physical presence.
-2. Farm management is inefficient in terms of time and energy due to repetitive daily tasks.
-3. The temperature inside the chicken coop is unpredictable and not consistently monitored, which can negatively affect chicken health and growth.
+1. Traditional flood monitoring relies on manual visual checks, which are ineffective and dangerous during heavy rain, extreme weather, or at night.
+2. There is a critical lack of real-time information regarding sudden water level rises in upstream areas, often resulting in downstream residents being unaware of incoming floods until it is too late.
+3. As a tropical country with high rainfall, Indonesia (particularly regions like Sumatra) faces frequent hydrometeorological disasters that cause significant material loss and fatalities due to delayed evacuation.
    
 ### Goals
-1. Automate the feeding and watering process with remote control and scheduling via a mobile app.
-2. Improve time and energy efficiency for the farmer, allowing focus on other productive activities.
-3. Enable real-time monitoring of the coop's temperature to maintain an ideal environment.
+1. Establish a real-time and remote data transmission mechanism from flood-prone locations to a centralized monitoring system to overcome visual limitations.
+2. Achieve high accuracy and low latency in detecting water level increases and delivering emergency notifications to the community.
+3. Implement a tiered warning system (Waspada, Siaga, Awas) to provide clear urgency levels for community response and evacuation.
 
 ### Solution Statements
-1. Build an IoT-based automatic feeding and watering system using actuators like servo motors and waterpump.
-2. Develop a mobile application to serve as a control dashboard for scheduling, manual commands, and monitoring.
-3. Integrate a temperature sensor (e.g., DHT11) to provide real-time environmental data on the mobile app.
-4. Use an ESP32 microcontroller to control the entire system, including sensors, actuators, and Wi-Fi connectivity.
+1. Use an ESP32 microcontroller as the primary processing unit to handle multi-sensor data and Wi-Fi connectivity.
+2. Incorporate an HC-SR04 ultrasonic sensor for precise water level measurement, a DHT-11 sensor for ambient temperature and humidity, and a rain sensor to detect precipitation.
+3. Utilize the MQTT (Message Queuing Telemetry Transport) protocol for efficient data transmission to Thinger.io, providing a real-time web-based dashboard for remote monitoring.
+4. Integrate a Telegram Bot API for immediate smartphone notifications and a physical buzzer for local audible alarms when water levels reach dangerous thresholds.
 
 ---
 
