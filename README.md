@@ -81,8 +81,6 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 This IoT project can save cost, time, and effort for chicken farmers. Its automatic features can provide benefits for chicken farmers. With this product we can also bring a better life with future technology. As long as we can use this product well, we can develop chicken farming with better techniques and provide better efficiency for other activities.
 
 ## Team
-1. Balevvvvy (https://github.com/Balevvvvy)
-2. fanTaux (https://github.com/fanTaux)
-3. nabsuc (https://github.com/nabsuc)
-4. Nathanael
-5. maulanamaky (https://github.com/maulanamaky)
+1. fanTaux (https://github.com/fanTaux)
+2. cayo-py (https://github.com/cayo-py)
+3. RisangDananJoyo (https://github.com/RisangDananJoyo)
