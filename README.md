@@ -69,7 +69,7 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 
 3.  **Flow Diagram**
 
-    ![Sequence Diagram](assets/Flow Diagram.png)
+    ![Sequence Diagram](assets/FlowDiagram.png)
 
 4.  **Schematic**
 
