@@ -1,7 +1,7 @@
 # IoT-Based Flood Early Warning System Using Thinger.io for Real-Time Data Visualization
 
 <p align="center">
-  <img src="https://github.com/fanTaux/FloodEarlyWarningSystemProject/blob/7a1f3aef27163857cf8e27b2f33572f83b86d7f0/assets/AlatEWS.jpg" alt="EWS Project Banner" width="600">
+  <img src="https://github.com/fanTaux/FloodEarlyWarningSystemProject/blob/7a1f3aef27163857cf8e27b2f33572f83b86d7f0/assets/AlatEWS.jpg" alt="EWS Project Banner" width="300">
 </p>
 
 ## Project Domain
@@ -49,13 +49,13 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 - **Power Supply:** Direct USB Cable
 
 ### ESP32 Datasheet
-<img src="assets/esp32v4pinout.png" alt="ESP32 Pinout" width="500">
+<img src="assets/esp32v4pinout.png" alt="ESP32 Pinout" width="300">
 
 ### Thinger.Io Interface
-<img src="assets/blynk.jpg" alt="Blynk User Interface" width="450">
+<img src="assets/blynk.jpg" alt="Blynk User Interface" width="300">
 
 ### Telegram Interface
-<img src="assets/blynk.jpg" alt="Blynk User Interface" width="450">
+<img src="assets/blynk.jpg" alt="Blynk User Interface" width="300">
 
 ## System Diagrams
 
@@ -69,11 +69,11 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 
 3.  **Flow Diagram**
 
-    ![Sequence Diagram](assets/FlowDiagram.png)
+    <img src="assets/FlowDiagram.png" alt="Flow Diagram" width="300">
 
 4.  **Schematic**
 
-    ![Schematic Diagram](assets/Skematik.png)
+    <img src="assets/Skematik.png" alt="Flow Diagram" width="300">
 
 
 ## Demo and Evaluation
