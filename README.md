@@ -43,16 +43,18 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 ### Hardware Specifications
 
 - **Microcontroller:** ESP32 DEV KIT v4
-- **Sensors:** Temperature Sensor (DHT 11) & Water Level Sensor
-- **Actuators:** Servo motor (SG90) & Waterpump (5V)
-- **Switching:** Relay (5V)
+- **Sensors:** Temperature Sensor (DHT-11), Ultrasonic Sensor (HC-SR04), & Rain Drop Sensor
+- **Actuators:** Buzzer
 - **Connectivity:** WiFi
-- **Power Supply:** 5V Powerbank
+- **Power Supply:** Direct USB Cable
 
 ### ESP32 Datasheet
 <img src="assets/esp32v4pinout.png" alt="ESP32 Pinout" width="500">
 
-### Blynk User Interface
+### Thinger.Io Interface
+<img src="assets/blynk.jpg" alt="Blynk User Interface" width="450">
+
+### Telegram Interface
 <img src="assets/blynk.jpg" alt="Blynk User Interface" width="450">
 
 ## System Diagrams
