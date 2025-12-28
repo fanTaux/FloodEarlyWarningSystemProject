@@ -77,11 +77,11 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 
 
 ## Demo and Evaluation
-### Demo Link : https://youtu.be/uSfvWD3atIk?si=YR0Dsns08SiuMoGj
+### Demo Link : 
 
-- **Setup:** Assemble all components based on the provided schematic diagram. Once the hardware is connected, upload the source code to the ESP32 microcontroller.
-- **Demo:** The demonstration will showcase the system's core functions, including real-time temperature and water level monitoring. It will also feature the remote activation of the servo motor to dispense feed and the water pump to provide drinking water.
-- **Evaluation:** To assess performance and durability, the system will be tested in a real-world environment, such as a chicken coop. This evaluation will measure the device's robustness and effectiveness under actual operational conditions.
+- **Setup:** The hardware assembly involves connecting the ESP32 unit to the HC-SR04 ultrasonic sensor, DHT-11 temperature and humidity sensor, rain sensor, and a buzzer for audible alarms. Specific pin assignments must be followed, including GPIO 4 for the DHT11, GPIO 18 and 19 for the ultrasonic sensor, GPIO 39 for the rain sensor, and GPIO 23 for the buzzer. Following assembly, the source code containing Wi-Fi credentials, Thinger.io device information, and Telegram Bot tokens is uploaded to the ESP32 to establish connectivity via the MQTT protocol.
+- **Demo:** The demonstration highlights the system's ability to provide real-time environmental monitoring by acquiring data from sensors every 20 seconds. It showcases the live visualization of water levels and humidity on the Thinger.io dashboard as well as the automated activation of the local buzzer and Telegram notifications. The alerting mechanism is demonstrated by simulating different water levels to trigger classification statuses: Waspada for 0-10 cm, Siaga for 10-20 cm, and Awas for levels exceeding 20 cm.
+- **Evaluation:** The system is evaluated based on its accuracy in status classification and its response speed, or latency, when detecting water level changes. Testing results confirm the system's reliability in sending sequential notifications to residents (for example, at 18:00 and 18:02) during critical status transitions. This evaluation confirms the device's robustness in bridging information gaps during nighttime or extreme weather, effectively increasing evacuation response times compared to manual monitoring methods.
 
 ## Conclusion
 This IoT project can save cost, time, and effort for chicken farmers. Its automatic features can provide benefits for chicken farmers. With this product we can also bring a better life with future technology. As long as we can use this product well, we can develop chicken farming with better techniques and provide better efficiency for other activities.
