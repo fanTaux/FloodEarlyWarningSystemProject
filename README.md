@@ -52,10 +52,10 @@ This project presents an Internet of Things (IoT) solution designed for disaster
 <img src="assets/esp32v4pinout.png" alt="ESP32 Pinout" width="300">
 
 ### Thinger.Io Interface
-<img src="assets/blynk.jpg" alt="Blynk User Interface" width="300">
+<img src="assets/thinger.jpeg" alt="Blynk User Interface" width="300">
 
 ### Telegram Interface
-<img src="assets/blynk.jpg" alt="Blynk User Interface" width="300">
+<img src="assets/telegram.jpeg" alt="Blynk User Interface" width="300">
 
 ## System Diagrams
 
